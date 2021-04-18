@@ -1,0 +1,37 @@
+<article class="post">
+    <header class="post__header">
+        <div class="post__header-details">
+            <img src={{post.avatar}} alt="">
+            <div class="metadata">
+                <span class="author">{{post.author}}</span>
+                <span class="date">{{post.createdAt | date:'medium':'+0200':'fr'}}</span>
+                <span class="autre"></span>
+            </div>
+        </div>
+        <div class="post__header-action">
+            <span class="fa fa-ellipsis-h"></span>
+            <ul>
+                <li>information</li>
+                <li>modifier</li>
+                <li>supprimer</li>
+                <li>masquer</li>
+                <li>signaler</li>
+            </ul>
+        </div>
+    </header>
+    <div class="post__body">
+        <p>{{post.description}}</p>
+        <img src={{post.image}} alt={{post.title}} >
+    </div>
+    <footer class="post__footer">
+        <div class="post__footer-actions">
+            <span class="fas fa-thumbs-up"></span>
+            <span class="fa fa-comment-alt"></span>
+        </div>
+        <div class="post__footer-comment">
+            <input type="text" placeholder="Ecrire un commentaire ..." name="comment" id="">
+            <div class="comment-comments">
+            </div>
+        </div>
+    </footer>
+</article>

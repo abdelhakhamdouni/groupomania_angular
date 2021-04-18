@@ -1,0 +1,19 @@
+.home{
+    width: 45%;
+    position: relative;
+    left: 28%;
+    background-color: rgba(250, 249, 249, 0.74);
+}
+.site-title{
+    font-size: 2em;
+    padding: 1em;
+    margin: 0;
+    margin-bottom: 1em;
+    color: rgb(97, 97, 97);
+    text-transform: uppercase;
+    text-align: center;
+    border-bottom: 1px solid gray;
+    position: sticky;
+    top: 0;
+    background-color: rgb(250, 249, 249);
+}
