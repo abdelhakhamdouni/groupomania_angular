@@ -9,16 +9,17 @@ export default class User{
     public password: string,
     public createdAt: Date){}
 
-    public static fromJson (json: object): User{
+    public static fromJson (jsonUser: object): User{
+        console.log(jsonUser)
         return new User(
-            json['id'],
-            json['firstName'],
-            json['lastName'],
-            json['email'],
-            json['avatar'],
-            json['roles'],
-            json['password'],
-            json['createdAt'],
+            jsonUser['user']['id'],
+            jsonUser['user']['firstName'],
+            jsonUser['user']['lastName'],
+            jsonUser['user']['email'],
+            jsonUser['user']['avatar'],
+            jsonUser['user']['roles'],
+            jsonUser['user']['password'],
+            jsonUser['user']['createdAt'],
         )
     }
 }

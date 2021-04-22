@@ -12,7 +12,7 @@ module.exports = {
     
     //strings for post querys
     createPost: "INSERT INTO posts(title, image, description, type, UserId, createdAt,updatedAt,userPseudo) VALUE(?,?,?,?,?,now(),now(),?)",
-    getPosts : `SELECT posts.*, users.avatar FROM posts,users WHERE posts.UserId = users.id`,
+    getPosts : `SELECT posts.*, users.avatar FROM posts,users WHERE posts.UserId = users.id ORDER BY posts.id DESC`,
     getLastsPostsByUserId : "SELECT id, image, description FROM posts ORDER BY createdAt DESC LIMIT 5",
     getAllPostsWithUserId: "SELECT posts.*, users.avatar FROM posts, users WHERE posts.UserId = users.id AND users.id = ?",
     getCountAllPostsByUserId : "SELECT posts.*, users.avatar FROM posts, users WHERE posts.UserId = users.id AND users.id = ?",

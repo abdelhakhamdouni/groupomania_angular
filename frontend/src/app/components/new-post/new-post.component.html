@@ -1,0 +1,27 @@
+<article class="new-post">
+    <header>
+        <img src={{user.avatar}} alt="avatar">
+        <span class="fa fa-times" (click)="closeModal($event)"></span>
+    </header>
+    <div class="alert alert-info mt-2">
+        <span class="fa fa-info-circle"></span>
+        <small>
+            Toute publication fera l'objet d'une validation par les modérateurs. <br>
+            Toute publication qui ne respecte pas <a href="#">les règles du groupes </a> seras supprimé immédiatement.
+        </small>
+    </div>
+    <form (submit)="savePostForm()" [formGroup]="postgroup">
+        <input class="title" type="text" formControlName="title" placeholder="Titre ...">
+        <ckeditor formControlName="content" ></ckeditor>
+        <div class="group">
+            <label for="image" title="Ajouter une image">
+                <span class="fa fa-image">&nbsp;Choisir une image</span> 
+            </label>
+            <input type="file" name="" id="image" (change)="preview($event)">
+            <div *ngIf="imagepreview" class="group__image">
+                <img src={{imagepreview}} alt=""><span class="fa fa-times" (click)="deleteImage($event)"></span>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Envoyer</button>
+    </form>
+</article>

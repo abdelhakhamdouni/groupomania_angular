@@ -14,8 +14,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { ProfilComponent } from './components/profil/profil.component';
 import { HttpClientModule } from '@angular/common/http';
 import Constantes from './services/constantes.service';
-import { registerLocaleData } from '@angular/common';
+import { CommonModule, registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AuthGuard } from './gaurds/auth.guard';
+import { AuthenticationModule } from './authentication/authentication.module';
+import { NewPostComponent } from './components/new-post/new-post.component';
+import { CKEditorModule } from 'ckeditor4-angular';
+
 registerLocaleData(localeFr);
 
 @NgModule({
@@ -29,15 +35,21 @@ registerLocaleData(localeFr);
     UsercardComponent,
     LastPostsComponent,
     ListPostsComponent,
-    ProfilComponent
+    ProfilComponent,
+    NewPostComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule,
+    ReactiveFormsModule,
+    AuthenticationModule,
+    CKEditorModule
   ],
   providers: [
     Constantes,
+    AuthGuard,
     { provide: LOCALE_ID, useValue: 'fr-FR'},
   ],
   bootstrap: [AppComponent]

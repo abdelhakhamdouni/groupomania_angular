@@ -10,17 +10,17 @@ export default class Post{
     public comments: number,
     public createdAt: Date){}
 
-    public static fromJson (json: object): Post{
+    public static fromJson (jsonPost: object): Post{
         return new Post(
-            json['id'],
-            json['title'],
-            json['image'],
-            json['avatar'],
-            json['description'],
-            json['userPseudo'],
-            json['likes'],
-            json['comments'],
-            json['createdAt'],
+            jsonPost['id'],
+            jsonPost['title'],
+            jsonPost['image'],
+            jsonPost['avatar'],
+            jsonPost['description'],
+            jsonPost['userPseudo'],
+            jsonPost['likes'],
+            jsonPost['comments'],
+            jsonPost['createdAt'],
         )
     }
 }

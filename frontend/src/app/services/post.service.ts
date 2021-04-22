@@ -22,5 +22,14 @@ export class PostService {
       )
     )
   }
+  public savePost(formData: FormData): Observable<any>{
+    return this.http.post('http://localhost:8000/api/posts', formData, {
+      headers: new HttpHeaders({
+        'authorization': 'Bearer ' + this.constantes.gettoken()
+      })
+    }).pipe(
+      res=> res
+    )
+  }
 
 }

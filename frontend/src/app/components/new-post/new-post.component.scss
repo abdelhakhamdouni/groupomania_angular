@@ -1,0 +1,88 @@
+.new-post{
+    background-color: #fff;
+    border-radius: 1em;
+    padding: 1em;
+    header{
+        display: flex;
+        justify-content: space-between;
+        img{
+            width: 45px;
+            height: 45px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-right: .5em;
+        }
+    }
+    form{
+        margin-top: 1em;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        .title{
+            margin: .5em 0;
+        }
+        textarea{
+            border: 1px solid lightgray;
+            resize: none;
+            width: 100%;
+        }
+        .btn{
+            margin-top: 1em;
+        }
+        .group{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            label{
+                line-height: 2em;
+                cursor: pointer;
+                border: 1px solid orangered;
+                border-radius: 1em;
+                margin-top: 1em;
+                box-shadow: 2px 2px 5px rgba(94, 94, 94, 0.521);
+                padding: 0 .5em;
+                background-color: rgba(255, 237, 231, 0.801);
+                transition: .2s;
+                &:hover{
+                    background-color: orangered ;
+                    span{
+                        color: rgb(255, 255, 255);
+                    }
+                }
+            }
+            input#image{
+                display: none;
+            }
+            .fa{
+                margin-top: .5em;
+                color: orangered;
+                transition: .3s;
+                margin-right: 5px;
+            }
+            img{
+                width: 200px;
+                height: auto;
+                margin-right: .5em;
+            }
+            .group__image{
+                display: flex;
+                flex-direction: row;
+                align-items: flex-start;
+                border: 1px solid rgba(206, 206, 206, 0.5);
+                margin-top: 1em;
+                padding: .5em;
+            }
+        }
+    }
+    .alert{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        small{
+            font-size: .6em;
+            font-weight: 300;
+        }
+    }
+}

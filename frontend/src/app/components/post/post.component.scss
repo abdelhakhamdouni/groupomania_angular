@@ -26,21 +26,66 @@
             }
         }
         .post__header-action{
-            ul{
+            position: relative;
+            span{
+                cursor: pointer;
+            }
+            ul.menu{
                 display: none;
+                &.show{
+                    position: absolute;
+                    right: 1em;
+                    top: 2em;
+                    display: flex;
+                    flex-direction: column;
+                    list-style: none;
+                    background-color: #fff;
+                    border-radius: .2em;
+                    box-shadow: 0 0 8px gray;
+                    padding: 0;
+                    li{
+                        display: flex;
+                        padding: .5em 1em;
+                        justify-content: flex-start;
+                        align-items: center;
+                        text-align: left;
+                        cursor: pointer;
+                        &:hover{
+                            background-color: rgb(240, 240, 240);
+                        }
+                        span{
+                            margin-right: 1.5em;
+                        }
+                    }
+                }
             }
         }
     }
     .post__body{
+        border-top: 1px solid lightgray;
+        border-bottom: 1px solid lightgray;
+        div{
+            max-height: 10em;
+            padding: .5em;
+            .h1 strong, h1 strong{
+                font-size: .5em !important;
+            }
+            p{
+                margin: .5em 0;
+            }
+        }
         img{
             width: 100%;
             height: 20em;
             object-fit: cover;
         }
         p{
-            height: 2.3em;
+            height: 3.2em;
             overflow: hidden;
             padding: 0 1em;
+            font-size: .8em;
+            padding-top: .5em;
+            margin: 1em;
         }
     }
     .post__footer{
@@ -49,6 +94,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            span{
+                color: rgb(136, 136, 136);
+                font-size: 1.2em;
+            }
         }
         .post__footer-comment{
             padding: 1em 0;
@@ -61,6 +110,11 @@
                 background-color: rgba(128, 128, 128, 0.13);
                 &::placeholder{
                     color: gray;
+                }
+                &:focus,
+                &:active{
+                    outline: none;
+                    background-color: #fff;
                 }
             }
         }
