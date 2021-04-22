@@ -1,1 +1,8 @@
-<p>list-posts works!</p>
+<h1 class="site-title">Groupomania</h1>
+<div class="add-new-post">
+    <img src="{{user.avatar}}" alt="avatar">
+    <input type="text" placeholder="Exprimez vous" (click)="showModal()" id="new-post-input">
+</div>
+<div *ngFor="let post of posts">
+    <app-post [post]="post"></app-post>
+</div>

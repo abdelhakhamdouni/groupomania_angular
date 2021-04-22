@@ -19,11 +19,12 @@ export class NewPostComponent implements OnInit {
   image= null;
   message:string;
   postData =  {} ;
+  error: string;
   
   
   constructor(private userService: UserService, private postService: PostService, private sanitizer: DomSanitizer, private router: Router) { }
 
-  closeModal(event){
+  closeModal(){
     document.querySelector('.modal').classList.toggle('show')
   }
 
@@ -55,29 +56,44 @@ export class NewPostComponent implements OnInit {
     this.imagepreview = null
   }
   
-  savePostForm(){
-    this.postData['title'] = this.postgroup.controls.title.value
-    this.postData['description'] = this.postgroup.controls.content.value
+  savePostForm(event){
+
+    event.stopPropagation() 
+
+    let description = this.postgroup.controls.content.value
+    let title = this.postgroup.controls.title.value
+
+    this.postData['title'] = title
+    this.postData['description'] = description
     this.postData['authorId'] = this.user.id
     this.postData['pseudo'] = this.user.lastName
 
-    
     let formData = new FormData();
-    if(this.image) formData.append('image', this.image[0])
+    if(this.image) {
+      formData.append('image', this.image[0])
+    }
     formData.append('post', JSON.stringify(this.postData))
 
-    this.postService.savePost(formData)
+    if(!this.imagepreview && !description){
+      this.error = "Un post sans image ni texte, ce n'est plus un post "
+      return
+    }
+    else{
+      this.postService.savePost(formData)
       .subscribe(res=> {
         if(res.message){{
           this.postService.getPost().subscribe(res=>{
+            this.closeModal()
             window.location.reload()
           })
         }}
       })
+    }
   }
 
   ngOnInit(): void {
     this.userService.getLogedUSer().subscribe(user=> this.user = user)
+    this.closeModal()
   }
 
 }

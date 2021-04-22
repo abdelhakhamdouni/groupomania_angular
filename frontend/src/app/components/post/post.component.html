@@ -9,8 +9,8 @@
             </div>
         </div>
         <div class="post__header-action">
-            <span class="fa fa-ellipsis-h" (click)="toggleMenu()"></span>
-            <ul class="menu">
+            <span class="fa fa-ellipsis-h" (click)="toggleMenu('post_'+post.id)"></span>
+            <ul class="menu" [class]="'post_' + post.id">
                 <li><span class="fa fa-info"></span>Information</li>
                 <li><span class="fa fa-edit"></span>Modifier</li>
                 <li><span class="fa fa-trash"></span>Supprimer</li>
@@ -28,10 +28,8 @@
             <span class="fas fa-thumbs-up"></span>
             <span class="fa fa-comment-alt"></span>
         </div>
-        <div class="post__footer-comment">
-            <input type="text" placeholder="Ecrire un commentaire ..." name="comment" id="">
-            <div class="comment-comments">
-            </div>
+        <div class="post__footer-comment" >
+            <input type="text" placeholder="Ecrire un commentaire ..." name="comment" [id]="'post '+post.id">
         </div>
     </footer>
 </article>
