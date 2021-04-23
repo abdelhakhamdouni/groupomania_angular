@@ -37,7 +37,7 @@
     width: 45%;
     position: relative;
     left: 28%;
-    background-color: #DAE0E6;
+    //background-color: #DAE0E6;
 
 }
 .site-title{
@@ -51,6 +51,7 @@
     position: sticky;
     top: 0;
     background-color: rgb(250, 249, 249);
+    z-index: 10;
 }
 
 .add-new-post{
